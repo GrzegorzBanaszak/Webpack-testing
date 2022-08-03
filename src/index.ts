@@ -3,4 +3,4 @@ import App from "./components/App";
 
 const app = document.getElementById("app")!;
 
-app.appendChild(App("Hello"));
+app.appendChild(App);
