@@ -15,14 +15,15 @@ module.exports = {
       directory: path.resolve(__dirname, "dist"),
     },
     port: 3000,
+    liveReload: true,
     open: true,
-    hot: true,
+    hot: false,
     compress: true,
     historyApiFallback: true,
   },
   module: {
     rules: [
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.scss$/, use: ["style-loader", "css-loader","sass-loader"] },
       {
         test: /\.ts?$/,
         use: "ts-loader",

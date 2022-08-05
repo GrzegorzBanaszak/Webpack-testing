@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+@import "variable";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+.calculator {
+  width: 100%;
+  height: 100vh;
+  background-color: $blueBg-1;
+  color: white;
+  &-theme {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+}
+.theme {
+  width: 5rem;
+  &-header {
+    display: flex;
+    justify-content: space-around;
+  }
+  &-body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $blueBg-2;
+    padding: 0.2rem;
+    height: 1.3rem;
+    border-radius: 15px;
+    span {
+      height: 1rem;
+      width: 1rem;
+    }
+    .active {
+      height: 1rem;
+      width: 1rem;
+      background-color: red;
+      border-radius: 50%;
+    }
+  }
+}
+
+.calculator-container {
+  margin: 0 1.5rem;
+  height: 100%;
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+}
