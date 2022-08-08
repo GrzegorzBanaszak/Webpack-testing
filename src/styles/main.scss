@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
 @import "variable";
+@import "theme";
+@import "inputs";
 
 body {
   margin: 0;
@@ -18,32 +20,20 @@ body {
     align-items: flex-end;
     gap: 1rem;
   }
-}
-.theme {
-  width: 5rem;
-  &-header {
-    display: flex;
-    justify-content: space-around;
-  }
-  &-body {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: $blueBg-2;
-    padding: 0.2rem;
-    height: 1.3rem;
+  &-result {
+    background-color: $blueBg-3;
+    padding: 1.2rem;
     border-radius: 15px;
-    span {
-      height: 1rem;
-      width: 1rem;
-    }
-    .active {
-      height: 1rem;
-      width: 1rem;
-      background-color: red;
-      border-radius: 50%;
-    }
+    font-size: 3rem;
+    text-align: right;
+    margin: 1.3rem 0;
   }
+}
+
+.calculator-body {
+  background-color: $blueBg-2;
+  padding: 1.2rem;
+  border-radius: 15px;
 }
 
 .calculator-container {

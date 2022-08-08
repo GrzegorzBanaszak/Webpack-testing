@@ -1,0 +1,17 @@
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0 1rem 0;
+  font-size: 2rem;
+  background-color: $button-bg-1;
+  color: $blueBg-2;
+  border-radius: 10px;
+  box-shadow: 0px 5px 0px 0px hsl(28, 16%, 65%);
+}
