@@ -4,12 +4,23 @@ class Calculator {
   themeType: string = "theme-1";
   toggles: Element[];
   appContainer: Element;
+  inputs: Element[];
   constructor() {
     this.toggles = Array.from(document.getElementById("toggle").children);
     this.appContainer = document.querySelector("#app");
+    this.inputs = Array.from(document.querySelectorAll(".input"));
     this.setToggleClick();
+    this.setInputsClick();
+    console.log(this.inputs);
   }
 
+  setInputsClick() {
+    this.inputs.forEach((input) => {
+      input.addEventListener("click", () => {
+        console.log(input.getAttribute("data-value"));
+      });
+    });
+  }
   setToggleClick() {
     this.toggles.forEach((element, i) => {
       element.addEventListener("click", () => {

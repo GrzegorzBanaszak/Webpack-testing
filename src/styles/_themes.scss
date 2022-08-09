@@ -14,9 +14,14 @@
     background-color: red;
   }
   .input-type-1 {
+    user-select: none;
     color: $blueBg-2;
-    background-color: $button-bg-1;
+    background-color: hsl(30, 25%, 89%);
     box-shadow: 0px 5px 0px 0px hsl(28, 16%, 65%);
+    &:hover {
+      background-color: hsl(30, 25%, 95%);
+      cursor: pointer;
+    }
   }
 
   .input-type-2 {
