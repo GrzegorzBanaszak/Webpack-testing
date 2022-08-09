@@ -1,0 +1,107 @@
+.theme-1 {
+  background-color: $blueBg-1;
+  color: white;
+  .body-color {
+    background-color: $blueBg-2;
+  }
+  .result-color {
+    background-color: $blueBg-3;
+  }
+  .select-color {
+    background-color: $blueBg-2;
+  }
+  .active {
+    background-color: red;
+  }
+  .input-type-1 {
+    color: $blueBg-2;
+    background-color: $button-bg-1;
+    box-shadow: 0px 5px 0px 0px hsl(28, 16%, 65%);
+  }
+
+  .input-type-2 {
+    color: white;
+    font-size: 1.4rem;
+    background-color: hsl(225, 21%, 49%);
+    box-shadow: 0px 5px 0px 0px hsl(224, 28%, 35%);
+  }
+
+  .input-type-3 {
+    color: white;
+    background-color: hsl(6, 63%, 50%);
+    border-radius: 10px;
+    box-shadow: 0px 5px 0px 0px hsl(6, 70%, 34%);
+  }
+}
+
+.theme-2 {
+  background-color: hsl(0, 0%, 90%);
+  color: hsl(60, 10%, 19%);
+  .body-color {
+    background-color: hsl(0, 5%, 81%);
+  }
+  .result-color {
+    background-color: hsl(0, 0%, 93%);
+  }
+  .select-color {
+    background-color: hsl(0, 5%, 81%);
+  }
+  .active {
+    background-color: red;
+  }
+  .input-type-1 {
+    color: $blueBg-2;
+    background-color: hsl(45, 7%, 89%);
+    box-shadow: 0px 5px 0px 0px hsl(35, 11%, 61%);
+  }
+
+  .input-type-2 {
+    color: white;
+    font-size: 1.4rem;
+    background-color: hsl(185, 42%, 37%);
+    box-shadow: 0px 5px 0px 0px hsl(185, 58%, 25%);
+  }
+
+  .input-type-3 {
+    color: white;
+    background-color: hsl(25, 98%, 40%);
+    border-radius: 10px;
+    box-shadow: 0px 5px 0px 0px hsl(25, 99%, 27%);
+  }
+}
+
+.theme-3 {
+  background-color: hsl(268, 75%, 9%);
+  color: hsl(52, 100%, 62%);
+  .body-color {
+    background-color: hsl(268, 71%, 12%);
+  }
+  .result-color {
+    background-color: hsl(268, 71%, 12%);
+  }
+  .select-color {
+    background-color: hsl(268, 71%, 12%);
+  }
+  .active {
+    background-color: hsl(176, 100%, 44%);
+  }
+  .input-type-1 {
+    color: hsl(52, 100%, 62%);
+    background-color: hsl(268, 47%, 21%);
+    box-shadow: 0px 5px 0px 0px hsl(290, 70%, 36%);
+  }
+
+  .input-type-2 {
+    color: white;
+    font-size: 1.4rem;
+    background-color: hsl(281, 89%, 26%);
+    box-shadow: 0px 5px 0px 0px hsl(285, 91%, 52%);
+  }
+
+  .input-type-3 {
+    color: hsl(198, 20%, 13%);
+    background-color: hsl(176, 100%, 44%);
+    border-radius: 10px;
+    box-shadow: 0px 5px 0px 0px hsl(177, 92%, 70%);
+  }
+}
