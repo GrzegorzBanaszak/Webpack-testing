@@ -13,11 +13,20 @@ class Calculator {
   setToggleClick() {
     this.toggles.forEach((element, i) => {
       element.addEventListener("click", () => {
-        this.appContainer.classList.remove(this.themeType);
-        this.appContainer.classList.add(`theme-${i + 1}`);
-        this.themeType = `theme-${i + 1}`;
+        this.changeContainerTheme(i);
+        this.toggleRemoveActiveClasse();
+        element.classList.add("active");
       });
     });
+  }
+  toggleRemoveActiveClasse() {
+    this.toggles.forEach((ele) => ele.classList.remove("active"));
+  }
+
+  changeContainerTheme(numberType: number) {
+    this.appContainer.classList.remove(this.themeType);
+    this.appContainer.classList.add(`theme-${numberType + 1}`);
+    this.themeType = `theme-${numberType + 1}`;
   }
 }
 
