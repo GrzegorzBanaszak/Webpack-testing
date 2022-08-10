@@ -13,29 +13,29 @@ class Calculator {
   toggles: Element[];
   appContainer: Element;
   inputs: Element[];
-  result: Element;
+  result: Element[];
   constructor() {
     this.toggles = Array.from(document.getElementById("toggle").children);
     this.appContainer = document.querySelector("#app");
     this.inputs = Array.from(document.querySelectorAll(".input"));
-    this.result = document.querySelector("#result");
+    this.result = Array.from(document.querySelector("#result").children);
     this.setToggleClick();
     this.setInputsClick();
   }
 
   refreshValue(type: ValueType) {
     if (type === ValueType.first) {
-      this.result.textContent = this.firstValue;
+      this.result[0].textContent = this.firstValue;
     }
 
     if (type === ValueType.second) {
-      this.result.textContent = this.secondValue;
+      this.result[2].textContent = this.secondValue;
     }
   }
 
   deleteFromValue() {
     if (this.actionType === "") {
-      if (this.firstValue.length > 1) {
+      if (this.firstValue.length > 0) {
         this.firstValue = this.firstValue.slice(0, -1);
         this.refreshValue(ValueType.first);
       } else {
@@ -43,6 +43,13 @@ class Calculator {
         this.refreshValue(ValueType.first);
       }
     } else {
+      if (this.firstValue.length > 0) {
+        this.secondValue = this.secondValue.slice(0, -1);
+        this.refreshValue(ValueType.second);
+      } else {
+        this.secondValue = "0";
+        this.refreshValue(ValueType.second);
+      }
     }
   }
 
@@ -50,7 +57,10 @@ class Calculator {
     switch (operatorType) {
       case "DEL":
         this.deleteFromValue();
+        break;
       default:
+        this.actionType = operatorType;
+        this.result[1].textContent = this.actionType;
     }
   }
 
