@@ -1,10 +1,5 @@
 import "./styles/main.scss";
 
-enum ValueType {
-  first,
-  second,
-}
-
 class Calculator {
   themeType: string = "theme-1";
   firstValue: string = "";
@@ -13,42 +8,82 @@ class Calculator {
   toggles: Element[];
   appContainer: Element;
   inputs: Element[];
-  result: Element[];
+  result: Element;
+  operators: Element[];
+
   constructor() {
     this.toggles = Array.from(document.getElementById("toggle").children);
     this.appContainer = document.querySelector("#app");
     this.inputs = Array.from(document.querySelectorAll(".input"));
-    this.result = Array.from(document.querySelector("#result").children);
+    this.operators = Array.from(document.querySelectorAll(".operator"));
+    this.result = document.querySelector("#result");
     this.setToggleClick();
     this.setInputsClick();
+    this.setOperatorClick();
   }
 
-  refreshValue(type: ValueType) {
-    if (type === ValueType.first) {
-      this.result[0].textContent = this.firstValue;
+  refreshValue() {
+    if (this.firstValue.length > 0) {
+      this.result.textContent = `${this.firstValue} ${this.actionType} ${this.secondValue}`;
+    } else {
+      this.result.textContent = "0";
     }
+  }
 
-    if (type === ValueType.second) {
-      this.result[2].textContent = this.secondValue;
+  displayResult() {
+    if (
+      this.firstValue.length > 0 &&
+      this.secondValue.length > 0 &&
+      this.actionType !== ""
+    ) {
+      const firstValue = Number(this.firstValue);
+      const secondValue = Number(this.secondValue);
+      switch (this.actionType) {
+        case "+":
+          this.firstValue = String(firstValue + secondValue);
+          this.secondValue = "";
+          this.actionType = "";
+          this.refreshValue();
+          break;
+        case "-":
+          this.firstValue = String(firstValue - secondValue);
+          this.secondValue = "";
+          this.actionType = "";
+          this.refreshValue();
+          break;
+        case "x":
+          this.firstValue = String(firstValue * secondValue);
+          this.secondValue = "";
+          this.actionType = "";
+          this.refreshValue();
+          break;
+        case "/":
+          this.firstValue = String(firstValue / secondValue);
+          this.secondValue = "";
+          this.actionType = "";
+          this.refreshValue();
+          break;
+      }
     }
+  }
+
+  resetCalculator() {
+    this.firstValue = "";
+    this.secondValue = "";
+    this.actionType = "";
+    this.result.textContent = "0";
   }
 
   deleteFromValue() {
     if (this.actionType === "") {
       if (this.firstValue.length > 0) {
         this.firstValue = this.firstValue.slice(0, -1);
-        this.refreshValue(ValueType.first);
-      } else {
-        this.firstValue = "0";
-        this.refreshValue(ValueType.first);
+        this.refreshValue();
       }
     } else {
       if (this.firstValue.length > 0) {
         this.secondValue = this.secondValue.slice(0, -1);
-        this.refreshValue(ValueType.second);
-      } else {
-        this.secondValue = "0";
-        this.refreshValue(ValueType.second);
+        this.refreshValue();
       }
     }
   }
@@ -58,9 +93,15 @@ class Calculator {
       case "DEL":
         this.deleteFromValue();
         break;
+      case "RESET":
+        this.resetCalculator();
+        break;
+      case "=":
+        this.displayResult();
+        break;
       default:
         this.actionType = operatorType;
-        this.result[1].textContent = this.actionType;
+        this.refreshValue();
     }
   }
 
@@ -70,10 +111,10 @@ class Calculator {
         input.addEventListener("click", () => {
           if (this.actionType === "") {
             this.firstValue += input.getAttribute("data-value");
-            this.refreshValue(ValueType.first);
+            this.refreshValue();
           } else {
             this.secondValue += input.getAttribute("data-value");
-            this.refreshValue(ValueType.second);
+            this.refreshValue();
           }
         });
       } else {
@@ -83,6 +124,15 @@ class Calculator {
       }
     });
   }
+
+  setOperatorClick() {
+    this.operators.forEach((element) => {
+      element.addEventListener("click", () => {
+        this.setOperator(element.getAttribute("data-value"));
+      });
+    });
+  }
+
   setToggleClick() {
     this.toggles.forEach((element, i) => {
       element.addEventListener("click", () => {
@@ -92,6 +142,7 @@ class Calculator {
       });
     });
   }
+
   toggleRemoveActiveClasse() {
     this.toggles.forEach((ele) => ele.classList.remove("active"));
   }
